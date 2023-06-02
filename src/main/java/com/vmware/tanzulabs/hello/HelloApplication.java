@@ -18,6 +18,8 @@ public class HelloApplication {
 
 		log.info( "java.library.path={}", System.getProperty( "java.library.path" ) ) ;
 		log.info( "jna.library.path={}", System.getProperty( "jna.library.path" ) ) ;
+		log.info( "jna.tmpdir={}", System.getenv( "jna.tmpdir" ) ) ;
+		log.info( "Platform Resource Prefix={}", Platform.RESOURCE_PREFIX );
 
 		/*
          * try and initialise the GnuCOBOL run time
