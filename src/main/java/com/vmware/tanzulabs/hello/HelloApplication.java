@@ -62,6 +62,6 @@ interface libcob extends Library {
  * hello COBOL program interface, single program
  */
 interface hello extends Library {
-	hello INSTANCE = (hello) Native.loadLibrary( "hello", hello.class );
+	hello INSTANCE = (hello) Native.loadLibrary( "Hello", hello.class );
 	void printhello();
 }
