@@ -14,14 +14,10 @@ public class HelloApplication {
 	
 	private static final Logger log = LoggerFactory.getLogger( HelloApplication.class );
 
-	// static {
-
-	// 	System.loadLibrary( "Hello" );
-
-	// }
-	// public native void printHello();
-
 	public static void main( String[] args ) {
+
+		log.info( "java.library.path={}", System.getProperty( "java.library.path" ) ) ;
+		log.info( "jna.library.path={}", System.getProperty( "jna.library.path" ) ) ;
 
 		/*
          * try and initialise the GnuCOBOL run time
@@ -54,7 +50,7 @@ public class HelloApplication {
  * libcob interface, initialising GnuCOBOL run time
  */
 interface libcob extends Library {
-	libcob INSTANCE = (libcob) Native.loadLibrary( "cob", libcob.class );
+	libcob INSTANCE = (libcob) Native.load( "cob", libcob.class );
 	void cob_init( int argc, Pointer argv );
 }
 
@@ -62,6 +58,6 @@ interface libcob extends Library {
  * hello COBOL program interface, single program
  */
 interface hello extends Library {
-	hello INSTANCE = (hello) Native.loadLibrary( "Hello", hello.class );
+	hello INSTANCE = (hello) Native.load( "Hello", hello.class );
 	void printhello();
 }
